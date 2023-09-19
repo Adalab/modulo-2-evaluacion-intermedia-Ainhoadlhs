@@ -8,24 +8,25 @@
 </head>
 <body>
     <main>
-        <section>
-            <h1>Juego Piedra, Papel y Tijera</h1>
-            <h3>Introduce aquí tu jugada:</h3>
+        <section class="section">
+            <h1 class="title">Juego Piedra, Papel y Tijera</h1>
+            <h3 class="move">Introduce aquí tu jugada:</h3>
             <div>
-                <select name="options" id="options">
+                <select name="options" id="options" class="select">
                     <option value="">Selecciona una jugada</option>
                     <option value="piedra">Piedra</option>
                     <option value="papel">Papel</option>
                     <option value="tijera">Tijera</option>
                 </select>
-                <button class="js-send" type="submit">Jugar</button>
+                <button class="button js-send" type="submit">Jugar</button>
                 <div class="text"></div>
             </div>
-            <div class="js-letsGo">Vamos a Jugar!</div>
+            <div class="button js-letsGo">Vamos a Jugar!</div>
             <div class="js-result">
                 Jugador: 0 <br>
                 Computadora: 0
             </div>
+            <button class="button js-reset" type="submit">Empezar de nuevo</button>
         </section>
     </main>
     <script src="javaScript/main.js"></script>

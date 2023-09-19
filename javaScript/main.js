@@ -29,29 +29,49 @@ function getRandomMovement () {
 }
 
 // Funcionamiento del juego
-function game () {
-    const userSelection = document.querySelector('#options').value;
-    const pcSelection = getRandomMovement();
-    if(userSelection == ""){
-        document.querySelector('.text').innerHTML = "Elija una opción";
-    }else {
-        if (userSelection === pcSelection){
-            letsGo.textContent = "Empate"; 
-        } else if (
-            (userSelection === "piedra" && pcSelection === "tijera") ||
-            (userSelection === "papel" && pcSelection === "piedra") ||
-            (userSelection === "tijera" && pcSelection === "papel")
-        ) {
-            letsGo.textContent = "¡Has ganado!";
-            scorePlayer++;
-        } else {
-            letsGo.textContent = "¡Has perdido!";
-            scorePc++;
-        }
-        document.querySelector('.text').innerHTML = "";
-        result.innerHTML = `Jugador: ${scorePlayer}<br>Computadora: ${scorePc}`;
+function game () { 
+    const userSelection = document.querySelector('#options').value; 
+    const pcSelection = getRandomMovement(); 
+    
+    timesPlayer = timesPlayer + 1;
+    
+    if(timesPlayer >= 10)
+    {
+    document.querySelector('.text').innerHTML = "¡Se acabó la partida!"; 
+    }else{
+    if(userSelection == ""){ 
+        document.querySelector('.text').innerHTML = "Elija una opción"; 
+    }else { 
+        if (userSelection === pcSelection){ 
+            letsGo.textContent = "Empate";  
+        } else if ( 
+            (userSelection === "piedra" && pcSelection === "tijera") || 
+            (userSelection === "papel" && pcSelection === "piedra") || 
+            (userSelection === "tijera" && pcSelection === "papel") 
+        ) { 
+            letsGo.textContent = "¡Has ganado!"; 
+            scorePlayer++; 
+        } else { 
+            letsGo.textContent = "¡Has perdido!"; 
+            scorePc++; 
+        } 
+        result.innerHTML = `Jugador: ${scorePlayer}<br>Computadora: ${scorePc}`; 
+        } 
     }
+    
 }
-
 // Llamada para que funcione el juego
 send.addEventListener("click", game);
+
+// Reset de la partida
+function reset () { 
+
+    timesPlayer = 0;
+    document.querySelector('.text').innerHTML = "";
+    scorePlayer = 0;
+    scorePc = 0;
+
+result.innerHTML = `Jugador: ${scorePlayer}<br>Computadora: ${scorePc}`;
+}
+
+document.querySelector(".js-reset"). addEventListener("click", reset);
