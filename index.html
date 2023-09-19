@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pidra - Papel - Tijera</title>
+    <title>Piedra - Papel - Tijera</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
@@ -18,11 +18,14 @@
                     <option value="papel">Papel</option>
                     <option value="tijera">Tijera</option>
                 </select>
-                <button type="submit">Jugar</button>
+                <button class="js-send" type="submit">Jugar</button>
+                <div class="text"></div>
             </div>
-            <div>Vamos a Jugar!</div>
-            <div>Jugador:</div>
-            <div>Computadora:</div>
+            <div class="js-letsGo">Vamos a Jugar!</div>
+            <div class="js-result">
+                Jugador: 0 <br>
+                Computadora: 0
+            </div>
         </section>
     </main>
     <script src="javaScript/main.js"></script>
